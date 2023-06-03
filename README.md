@@ -1,6 +1,6 @@
-# flutter_bp
+# Flutter Custom Widget
 
-A new Flutter project.
+A new Flutter project to learn about building custom widget in Flutter.
 
 ## Getting Started
 
