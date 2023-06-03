@@ -50,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     duration: Duration(seconds: 1),
                   ),
                 );
+                // Open Twitter app
               },
               child: const Text("Follow on Twitter"),
             ),
@@ -63,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     duration: Duration(seconds: 1),
                   ),
                 );
+                // Open Instagram app
               },
               child: const Text("Follow on Instagram"),
             ),
