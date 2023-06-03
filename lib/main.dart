@@ -73,7 +73,8 @@ class CustomButton extends StatelessWidget {
     return Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Text("Press the below button to follow me on $platform"),
-      ElevatedButton(
+      OutlinedButton(
+        style: OutlinedButton.styleFrom(foregroundColor: Colors.green),
         onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
