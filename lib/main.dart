@@ -41,36 +41,50 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text('Welcome to Flutter Refactoring Tutorial',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             const SizedBox(height: 16),
-            const Text('Press the below button to follow me on Twitter'),
-            ElevatedButton(
+            CustomButton(
+              platform: 'Twitter',
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Pressed Follow on Twitter button"),
-                    duration: Duration(seconds: 1),
-                  ),
-                );
-                // Open Twitter app
+                // Open Twitter App
               },
-              child: const Text("Follow on Twitter"),
             ),
             const SizedBox(height: 16),
-            const Text('Press the below button to follow me on Instagram'),
-            ElevatedButton(
+            CustomButton(
+              platform: 'Instagram',
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Pressed Follow on Instagram button"),
-                    duration: Duration(seconds: 1),
-                  ),
-                );
-                // Open Instagram app
+                // Open Instagram App
               },
-              child: const Text("Follow on Instagram"),
             ),
           ],
         ),
       ),
     );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final String platform;
+  final VoidCallback onPressed;
+
+  const CustomButton(
+      {super.key, required this.platform, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Text("Press the below button to follow me on $platform"),
+      ElevatedButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("Pressed Follow on $platform button"),
+              duration: const Duration(seconds: 1),
+            ),
+          );
+          onPressed();
+        },
+        child: Text("Follow on $platform"),
+      )
+    ]));
   }
 }
